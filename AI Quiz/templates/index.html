@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz Application</title>
+</head>
+<body>
+    <h1>Welcome to the AI Quiz Application!</h1>
+    <p>This application allows you to upload an audio file and get feedback on fluency, pronunciation, and grammar.</p>
+    
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label for="audio">Upload your audio file:</label>
+        <input type="file" id="audio" name="audio" accept="audio/*" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if transcription %}
+    <h2>Transcription:</h2>
+    <p>{{ transcription }}</p>
+
+    <h2>Fluency Feedback:</h2>
+    <p>{{ feedback }}</p>
+
+    <h2>Grammar Feedback:</h2>
+    <p>{{ grammar_feedback }}</p>
+    {% endif %}
+</body>
+</html>
